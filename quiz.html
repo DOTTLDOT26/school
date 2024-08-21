@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tides Quiz</title>
+</head>
+<body>
+    <h1>Tides Quiz</h1>
+    <form id="quizForm">
+        <label for="q1">1. What causes tides?</label><br>
+        <input type="radio" name="q1" value="A"> Wind<br>
+        <input type="radio" name="q1" value="B"> Gravitational forces of the Moon and Sun<br>
+        <input type="radio" name="q1" value="C"> Earth's rotation<br><br>
+
+        <label for="q2">2. What is a Spring Tide?</label><br>
+        <input type="radio" name="q2" value="A"> When tides are exceptionally low<br>
+        <input type="radio" name="q2" value="B"> When the Sun, Moon, and Earth are aligned<br>
+        <input type="radio" name="q2" value="C"> When the Sun and Moon are at right angles<br><br>
+
+        <label for="q3">3. What is a Neap Tide?</label><br>
+        <input type="radio" name="q3" value="A"> The highest tide<br>
+        <input type="radio" name="q3" value="B"> The lowest tide<br>
+        <input type="radio" name="q3" value="C"> When the Sun and Moon are at right angles<br><br>
+
+        <button type="button" onclick="checkAnswers()">Submit</button>
+    </form>
+    <p id="result"></p>
+
+    <script>
+        function checkAnswers() {
+            const answers = {
+                q1: "B",
+                q2: "B",
+                q3: "C"
+            };
+            let score = 0;
+            for (let question in answers) {
+                const userAnswer = document.querySelector(`input[name="${question}"]:checked`);
+                if (userAnswer && userAnswer.value === answers[question]) {
+                    score++;
+                }
+            }
+            document.getElementById("result").innerText = `You scored ${score}/3.`;
+        }
+    </script>
+</body>
+</html>
++
